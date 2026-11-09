@@ -353,7 +353,7 @@ def update_model(model_path, new_csv_path, algo=None):
     # ── Load New Data 
     print(f"\n[2/5] Loading new data...")
     df = _load_csv(new_csv_path)
-
+    
     print(f"\n[3/5] Processing new data...")
     X_new, y_new = _clean_data(df)
     del df

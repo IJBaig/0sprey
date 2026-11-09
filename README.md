@@ -1,49 +1,50 @@
 # ML-based Cyber Attack Detection in Simulated Networks
 
 ## Project Overview
-This project demonstrates a machine learning-based approach to cyber-attack detection in a simulated network environment. It covers:
-- Lab setup and traffic generation
-- Traffic capture and dataset creation
-- Feature extraction and preprocessing
-- Machine learning model training and evaluation
-- Real-time/replay deployment for attack detection
+- ...
 
 ## Directory Structure
-- `src/` — Core Python modules (feature extraction, ML pipeline, deployment)
+- `src/` — Core Python modules (feature extraction, ML pipeline, deployment, Csv Merge), CICFlowMeter (for feature Extraction), jnetpcap (CIC FlowMeter Dependency)
 - `scripts/` — Utility scripts for running tasks
 - `data/` — Place to store raw pcap files and processed datasets
 - `models/` — Saved ML models
 - `notebooks/` — Jupyter notebooks for exploration and analysis
-- `.github/` — Copilot instructions and project automation
+- `requirement.txt` — python Libraries 
 
-## Setup Instructions
+## Setup Instructions and Usage
 1. **Install Python 3.8+**
-2. **Install dependencies:**
+2. **Required JAVA 8**
+   Java 8 is Required for feature Extraction and Testing.
+2. **GIT Clone**
+   ```bash
+   git clone https://github.com/IJBaig/0sprey
+   cd 0sprey
+   ```
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
-3. **Place your pcap files in the `data/` directory.**
-4. **Run feature extraction:**
+4. **Place your pcap files in the `data/` directory.**
+5. **Run feature extraction:**
    ```bash
-   python scripts/extract_features.py --input data/your_capture.pcap --output data/flows.csv
+   python scripts/extract_features.py --input data/your_capture.pcap --output data/data.csv
    ```
 5. **Train the ML model:**
    ```bash
-   python scripts/train_model.py --input data/flows.csv --output models/attack_detector.joblib
+   python scripts/train_model.py --input data/data.csv --output models/model.onnx
    ```
 6. **Deploy and classify new traffic:**
    ```bash
-   python scripts/classify_live.py --input data/new_capture.pcap --model models/attack_detector.joblib
+   python scripts/classify_live.py --input data/new_capture.pcap --model models/model.onnx
    ```
 
 ## Requirements
 - GNS3/EVE-NG, VirtualBox/VMware, Kali Linux, Wireshark (for lab setup)
-- Python libraries: scikit-learn, pandas, numpy, scapy, pyshark, joblib
+- Python libraries: scikit-learn, pandas, numpy, scapy.
 
 ## References
 - See `notebooks/` for example analysis and feature engineering.
 - See `src/` for reusable modules.
-
 ---
 
 **Replace sample data and models with your own for real experiments.**
